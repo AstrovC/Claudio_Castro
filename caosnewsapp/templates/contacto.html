@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="card bg-dark text-white">
+        <div class="card-body">
+            <h3 class="text-center">Contáctate con nosotros</h3>
+            <p class="text-center">Completa el siguiente formulario de contacto</p>
+            <form action="#" method="post" name="datos">
+                <div class="form-group">
+                    <label id="rut-label" for="rut" class="col-sm-4 col-form-label">Rut:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="rut" name="rut" placeholder="Digite su rut..." required class="form-control"
+                            minlength="10">
+                        <p class="hide label-error" id="rut-mensaje">El rut ingresado no es válido</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="nom-label" for="nom" class="col-sm-4 col-form-label">Nombre:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="nom" name="nom" placeholder="Digite su nombre..." required class="form-control"
+                            minlength="3" onchange="upperText(this)">
+                        <p class="label-error hide" id="nom-mensaje">Debe ingresar su nombre</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="apeP-label" for="apeP" class="col-sm-4 col-form-label">Apellido Paterno:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="apeP" name="apeP" placeholder="Digite su apellido paterno..." required
+                            class="form-control" minlength="3" onchange="upperText(this)">
+                        <p class="label-error hide" id="apeP-mensaje">Debe ingresar su apellido paterno</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="apeM-label" for="apeM" class="col-sm-4 col-form-label">Apellido Materno:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="apeM" name="apeM" placeholder="Digite su apellido materno..." required
+                            class="form-control" minlength="3" onchange="upperText(this)">
+                        <p class="label-error hide" id="apeM-mensaje">Debe ingresar su apellido materno</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="genero-label" for="genero" class="col-sm-4 col-form-label">Género:</label>
+                    <div class="col-sm-8">
+                        <select id="genero" class="form-control">
+                            <option value="0">Seleccione género...</option>
+                            <option value="1">Mujer</option>
+                            <option value="2">Hombre</option>
+                            <option value="3">Prefiero no decirlo</option>
+                        </select>
+                        <p class="label-error hide" id="genero-mensaje">Debe seleccionar un género</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="direccion-label" for="direccion" class="col-sm-4 col-form-label">Dirección:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="direccion" name="direccion" placeholder="Digite su dirección..." required class="form-control">
+                        <p class="label-error hide" id="direccion-mensaje">Debe ingresar su dirección</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label id="correo-label" for="correo" class="col-sm-4 col-form-label">Correo Electrónico:</label>
+                    <div class="col-sm-8">
+                        <input type="email" id="correo" name="correo" placeholder="Digite su correo electrónico..." required class="form-control">
+                        <p class="label-error hide" id="correo-mensaje">Debe ingresar su e-mail</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label id="telefono-label" for="telefono" class="col-sm-4 col-form-label">Teléfono:</label>
+                        <div class="col-sm-8">
+                            <input type="tel" id="telefono" name="telefono" placeholder="Digite su número de teléfono..." required class="form-control">
+                            <p class="label-error hide" id="telefono-mensaje">Debe ingresar su teléfono</p>
+                        </div>
+                </div>
+
+                <input type="button" value="Enviar" onclick="enviarFormulario()" class="btn btn-danger btn-lg">
+
+
+            </form>
+            <div id="error"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
